@@ -5,7 +5,7 @@ from datetime import datetime, timedelta
 
 def get_weather_data(api_key, location, days):
     """
-    Fetch weather data (historical, real-time, or forecasting) based on user input.
+    Request the weather data (historical, real-time, or forecasting) based on user's input (Location, and number of days).
     """
     if days < 0:
         # Historical Weather
@@ -17,7 +17,7 @@ def get_weather_data(api_key, location, days):
         url = f"http://api.weatherapi.com/v1/current.json?key={api_key}&q={location}"
         data_type = "Real-time"
     else:
-        # Forecast Weather
+        # Forecasting Weather
         url = f"http://api.weatherapi.com/v1/forecast.json?key={api_key}&q={location}&days={days}"
         data_type = "Forecast"
 
@@ -32,7 +32,7 @@ def get_weather_data(api_key, location, days):
 
 def display_weather(data, data_type):
     """
-    Displays the weather data based on the number type (negative, 0, positive) (historical, real-time, or forecast).
+    Demonstrate the weather data based on the number type (negative, 0, positive) (historical, real-time, or forecast).
     """
     if not data:
         messagebox.showinfo("Weather Data", "No data available.")
